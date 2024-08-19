@@ -12,7 +12,8 @@ public class ZombieAttack : MonoBehaviour
 
     public AudioClip[] attackSound;
     public AudioSource audioSource;
-    private void Start()
+    
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
         attackBoxCollider = GetComponent<BoxCollider>();
@@ -23,7 +24,6 @@ public class ZombieAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
         if (other.CompareTag("Player") && zombieController.animator != null && !gameManager.gameOver)
         {
             int index = Random.Range(0, attackSound.Length);
@@ -34,9 +34,9 @@ public class ZombieAttack : MonoBehaviour
 
             if(playerController.currentHealthPoint > 0)
             playerController.currentHealthPoint -= attackDamage * Time.deltaTime;
-
         }
     }
+   
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") && zombieController.animator != null)
@@ -44,6 +44,4 @@ public class ZombieAttack : MonoBehaviour
            animator.SetBool("isAttack", false);
         }
     }
-
-
 }
