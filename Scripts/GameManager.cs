@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
     public bool[] weaponsActive;
 
 
-
-
     void Start()
     {
         startingImage.SetActive(true);
