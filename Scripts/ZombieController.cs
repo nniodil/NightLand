@@ -42,7 +42,6 @@ public class ZombieController : MonoBehaviour
         int index = Random.Range(0, runningSound.Length);
         audioSource.clip = runningSound[index];
         audioSource.Play();
-
     }
 
 
@@ -61,14 +60,13 @@ public class ZombieController : MonoBehaviour
             audioSource.Stop();
             
             int index2 = Random.Range(0, 300);
+            
             if (index2 < 10)
             {
                 int index = Random.Range(0, bonus.Length);
                 Instantiate(bonus[index],transform.position,transform.rotation);
             }
-            
-            
-
+               
             if(currentHealth <= 0 && isAlive == false)
             {
                 audioSource.loop = false;
@@ -76,9 +74,7 @@ public class ZombieController : MonoBehaviour
                 audioSource.clip = deathSound[index];
                 audioSource.Play();
             }
-
-            
-            
+  
             zombie.speed = 0;
             
             zombieAttack.attackBoxCollider.enabled = false;
@@ -89,8 +85,6 @@ public class ZombieController : MonoBehaviour
             gameManager.currentZombiesLeft--;
             Destroy(gameObject, 30);
         }
-    
-    
     }
 
     void FollowingPlayer()
