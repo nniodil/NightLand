@@ -69,19 +69,15 @@ public class SpawnManager : MonoBehaviour
             ZombiesPrefab();
 
             isSpawning = false;
-
         }
-
-
     }
+    
     IEnumerator NewRound()
     {
 
         isNewWave = true;
         canSpawn = false;
         newRound.Play();
-
-
 
         yield return new WaitForSeconds(8);
         gameManager.rounds++;
@@ -93,7 +89,6 @@ public class SpawnManager : MonoBehaviour
         isNewWave = false;
         spawnedZombies = 0;
         canSpawn = true;
-
     }
 
     void ZombiesPrefab()
@@ -123,10 +118,5 @@ public class SpawnManager : MonoBehaviour
                 newZombieController.currentHealth = newZombieController.maxHealth;
             }
         }
-
     }
-
-
 }
-
-
