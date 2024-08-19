@@ -25,16 +25,13 @@ public class EndGameScript : MonoBehaviour
         {
             gameManager.endGameText.SetActive(true);
         }
-        
-    
     }
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             gameManager.endGameText.SetActive(false);
         }
-
-
     }
 }
