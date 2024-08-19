@@ -33,9 +33,7 @@ public class WallBuyController : MonoBehaviour
             gameManager.wallBuyPrice.text = "Press F to buy " + weaponName + " [Cost: " + weaponPrice.ToString() + "] - Ammos [Cost: " + weaponAmmoPrice.ToString() + "]";
             gameManager.wallBuyGameObject.SetActive(true);
             canBuy = true;
-
-}
-
+         }
     }
 
     private void OnTriggerExit(Collider other)
@@ -51,7 +49,6 @@ public class WallBuyController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && gameManager.wallBuyGameObject.activeSelf && canBuy == true && 
             gameManager.currentWeapon.name == weaponName && gameManager.currentGunController.ammoReserve != gameManager.currentGunController.maxAmmoReserve && gameManager.points >= weaponAmmoPrice && !gameManager.gameOver)
-        
         {
             gameManager.points -= weaponAmmoPrice;
             gameManager.currentGunController.ammoReserve = gameManager.currentGunController.maxAmmoReserve;
@@ -88,8 +85,8 @@ public class WallBuyController : MonoBehaviour
                         gameManager.weapons[0].SetActive(false);
 
                     }
-
                 }
+                
                 //if weapon 0 is active then replace with new one
                 if (gameManager.weapons[0] != null && gameManager.weapons[1] != null && gameManager.gunControllers[1].weaponName != weaponName)
                 {
@@ -107,6 +104,7 @@ public class WallBuyController : MonoBehaviour
                     }
 
                 }
+               
                 //if weapon 1 is active then replace with new one
                 if (gameManager.weapons[0] != null && gameManager.weapons[1] != null && gameManager.gunControllers[1].weaponName != weaponName)
                 {
@@ -123,16 +121,7 @@ public class WallBuyController : MonoBehaviour
                         gameManager.weapons[1].SetActive(true);
                     }
                 }
-
-
             }
-
-
         }
-
-
-
-
-
     }
 }
