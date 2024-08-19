@@ -20,11 +20,9 @@ public class QuitScript : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
-
     }
     public void StartButton()
     {
         SceneManager.LoadScene("Die Untoten");
-
     }
 }
