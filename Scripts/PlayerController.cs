@@ -55,14 +55,11 @@ public class PlayerController : MonoBehaviour
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         }
-        
-
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2;
         }
-
     }
 
     void SprintPlayer()
@@ -76,7 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             walkSpeed = 7;
         }
-
     }
 
     void JumpPlayer()
@@ -85,7 +81,6 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2 * gravity);
         }
-
     }
 
     void HealthPointPlayer()
@@ -109,7 +104,6 @@ public class PlayerController : MonoBehaviour
             isHealing = true;
             canHeal = false;
             StartCoroutine(HealthRegenPlayer());
-
         }
 
         if (currentHealthPoint > maxHealthPoint)
@@ -142,7 +136,6 @@ public class PlayerController : MonoBehaviour
             currentHealthPoint += healthPointNeeded;
         }
         
-
         if (currentHealthPoint > maxHealthPoint)
         {
             currentHealthPoint = maxHealthPoint;
@@ -152,12 +145,5 @@ public class PlayerController : MonoBehaviour
         canHeal = false;
         coroutineLock = false;
         gameManager.healingText.SetActive(false);
-
-    }
-
-    
-    
-    
+    }  
 }
-
-
