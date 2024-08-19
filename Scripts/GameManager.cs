@@ -78,14 +78,12 @@ public class GameManager : MonoBehaviour
             }
             
             gameOverText.SetActive(true);
-            
         }
         else if (!gameOver)
         {
             gameOverText.SetActive(false);
         }
     }
-
 
     void UIText()
     {
@@ -132,7 +130,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator SwitchDelay2()
     {
-        //enabled new weapon
+        
         yield return new WaitForSeconds(0.25f);
         weapons[1].SetActive(true);
 
@@ -141,14 +139,13 @@ public class GameManager : MonoBehaviour
         gunControllers[0].isReloading = false;
         gunControllers[0].canShoot = true;
         gunControllers[0].muzzleFlash.SetActive(false);
-
+        
+        //enabled new weapon
         currentWeapon = weapons[1];
         gunControllers[1].canShoot = true;
         weapons[1].transform.localPosition = gunControllers[1].reloadingLocalPosition;
         gunControllers[1].isReloading = false;
         gunControllers[1].canShoot = true;
-
-
     }
 
     void Inventory()
@@ -162,13 +159,11 @@ public class GameManager : MonoBehaviour
             currentWeapon.name = gunControllers[1].weaponName;
         }
 
-
         if (weapons[0] != null)
             gunControllers[0] = weapons[0].GetComponent<GunController>();
 
         if (weapons[1] != null)
             gunControllers[1] = weapons[1].GetComponent<GunController>();
-
 
         currentGunController = currentWeapon.GetComponent<GunController>();
 
@@ -181,7 +176,6 @@ public class GameManager : MonoBehaviour
         {
             weaponsActive[1] = true;
             weaponsActive[0] = false;
-
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && weapons[0] != null && gunControllers[0] != null && !gameOver)
@@ -196,23 +190,17 @@ public class GameManager : MonoBehaviour
         {
             if (weaponsActive[1] == false && gunControllers[1].isReloading == false)
             {
-
                 StartCoroutine(SwitchDelay2());
-
             }
-
         }
-
     }
 
     public void QuitButton()
     {
         Application.Quit();
-
     }
     public void RestartButton()
     {
         SceneManager.LoadScene("Die Untoten");
-
     }
 }
