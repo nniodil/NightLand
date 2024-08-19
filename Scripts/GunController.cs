@@ -57,6 +57,8 @@ public class GunController : MonoBehaviour
     public AudioSource GunFireSound;
     public AudioSource GunReloadSound;
     public AudioSource GunEmptySound;
+    
+    
     void Start()
     {
         isReloading = false;
@@ -69,10 +71,6 @@ public class GunController : MonoBehaviour
         playerController = FindAnyObjectByType<PlayerController>();
         crosshair = GameObject.Find("Crosshair");
         GunEmptySound = GameObject.Find("Empty Mag").GetComponent<AudioSource>();
-        
-        
-
-
     }
 
     
@@ -81,12 +79,9 @@ public class GunController : MonoBehaviour
         GunShoot();
         GunReload();
         DetermineAim();
-        
-
     }
 
     
-
     void GunShoot()
     {
 
@@ -126,11 +121,8 @@ public class GunController : MonoBehaviour
             {
                 zombieController = hit.collider.gameObject.GetComponent<ZombieController>();
                 zombieController.currentHealth -= weaponDamage;
-                gameManager.points += 10;
-                
+                gameManager.points += 10;  
             }
-
-
         }
         
         if(Input.GetKeyDown(KeyCode.Mouse0) && currentAmmoMagazine <= 0 && ammoReserve <= 0)
@@ -152,10 +144,8 @@ public class GunController : MonoBehaviour
                 muzzleFlash.SetActive(false);
                 transform.localPosition = reloadingLocalPosition;
                 StartCoroutine(Reloading());
-            }
-            
+            }  
          } 
-    
     }
 
     IEnumerator MuzzleFlash()
@@ -189,12 +179,9 @@ public class GunController : MonoBehaviour
             isReloading = false;
 
             if(ammoReserve < 0) ammoReserve = 0;
-
-            
-
-
         }
     }
+    
     void DetermineAim()
      {
         if (isReloading == false && !gameManager.gameOver)
@@ -235,7 +222,5 @@ public class GunController : MonoBehaviour
         Vector2 recoil = new Vector2(xRange, yRange);
 
         playerCamera.mouseAxis += recoil;
-        
     }
-
 }
