@@ -39,8 +39,6 @@ public class PickBonusController : MonoBehaviour
             gameManager.gunControllers[0].isReloading = false;
             gameManager.gunControllers[0].GunReloadSound.Stop();
 
-
-
             //weapon 2
             if (gameManager.gunControllers[1] != null)
             {
@@ -50,8 +48,7 @@ public class PickBonusController : MonoBehaviour
                 gameManager.gunControllers[1].GunReloadSound.Stop();
 
             }
-            
-            
+                 
             Destroy(gameObject);
         }
     }
