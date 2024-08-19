@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class DoorController : MonoBehaviour
 {
     
@@ -45,15 +44,7 @@ public class DoorController : MonoBehaviour
     {
         if (other.CompareTag("Player") && gameObject.CompareTag("Doors"))
         {
-            gameManager.doorGameObject.gameObject.SetActive(false);
-
-            
+            gameManager.doorGameObject.gameObject.SetActive(false);   
         }
     }
-
-  
-        
-
-
-
 }
