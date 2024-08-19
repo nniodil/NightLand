@@ -14,16 +14,12 @@ public class PlayerCamera : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        PlayerMouseLook();
-        
-    
+        PlayerMouseLook();  
     }
 
     void PlayerMouseLook()
@@ -40,9 +36,5 @@ public class PlayerCamera : MonoBehaviour
 
             transform.localEulerAngles = Vector3.right * cameraPosY * mouseSensitivity;
         }
-        
-
     }
-
-    
 }
