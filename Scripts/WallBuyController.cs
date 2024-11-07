@@ -66,7 +66,7 @@ public class WallBuyController : MonoBehaviour
 
                 wallbuySound.Play();
 
-                //destroy first weapon to replace with new one
+                //the first weapon bought is automatically switch to slot 2 then showed
                 if (gameManager.weapons[0] != null && gameManager.weapons[1] == null)
                 {
                     if (gameManager.weaponsActive[0] == true)
